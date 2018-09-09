@@ -25,5 +25,4 @@ for ($i = 0; $i < $lenLong; $i++) {
         unset($array[$i]);
     }
 }
-
 echo $comma_separated = implode('', $array);
