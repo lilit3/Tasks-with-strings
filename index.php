@@ -12,7 +12,7 @@ class ForStringClass
     public function __construct(string $longString){
 	
 	$this->longString = $longString;
-        $this->getStrLen();
+	$this->getStrLen();
     }
 
     public function getStrLen()
