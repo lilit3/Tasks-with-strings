@@ -54,7 +54,7 @@ class ForStringClass
         return($newArr);
     }
 
-    //strpos
+   // strpos просто сравнивать по символьно. искать первый симфол и если нашелся то и остальные проверять. если остальных нет то снова искать первый
     public function getStrPos()
     {
 
