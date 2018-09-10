@@ -60,9 +60,9 @@ class ForStringClass
 
     }
 
-#explode — Разбивает строку с помощью разделителя
-#array explode ( string $delimiter , string $string [, int $limit = PHP_INT_MAX ] )
-#Возвращает массив строк, полученных разбиением строки string с использованием delimiter в качестве разделителя.
+    #explode — Разбивает строку с помощью разделителя
+    #array explode ( string $delimiter , string $string [, int $limit = PHP_INT_MAX ] )
+    #Возвращает массив строк, полученных разбиением строки string с использованием delimiter в качестве разделителя.
 
     public function explodeStr($delimiter)
     {
@@ -79,19 +79,21 @@ class ForStringClass
         return($newArr);
     }
 
+    #3 substr_count — Возвращает число вхождений подстроки
+    public function substrCount($delimiter)
+    {
+
+        while ($x = strpos($this->longString,, 's')) {
+        	// $x++;
+        	$long = substr($long, ++$x);
+        	$substr_count++;
+
+        }
+
+        return $substr_count;
+    }
+
 }
 
 
 
-
-
-
-#3 substr_count — Возвращает число вхождений подстроки
-while ($x = strpos($long, 's')) {
-   // $x++;
-    $long = substr($long, ++$x);
-    $substr_count++;
-    
-  
-}
-echo $substr_count;
