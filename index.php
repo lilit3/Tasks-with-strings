@@ -2,25 +2,34 @@
 
 class ForStringClass
 {
-	public $longString;
-	public $lenght;
-	//public $posIn;
-	public $shotString;
-	public $lenghtShot;
+
+    public $longString;
+    public $lenght;
+    public $shotString;
+    public $lenghtShot;
+    public $posIn = 2;
+    public $strToArray;
 
 
-	public function __construct(string $longString){
-        $this->longString = $longString;
+    public function __construct(string $longString){
+
+	$this->longString = $longString;
         $this->getStrLen();
         $this->substr = $substr;
-        $this->lenghtShot = strlen($this->shotString);
+        $this->lenghtShot = strlen($this->substr);
+        $this->$strToArray = getStrToArr();
+
     }
 
     public function getStrLen() {
         $this->lenght = strlen($this->lenght);
     }
+
+    public function getStrToArr() {
+        $this->strToArray = str_split($this->longString);
+    }
     
-    // strpos
+    //strpos
     public function getStrPos() {
 
         for ($i = 0; $i < $this->lenght; $i++) {
@@ -31,25 +40,28 @@ class ForStringClass
         }
         
     }
-}
 
+    //substr — Возвращает подстроку string substr ( string $string , int $start [, int $length ] )
+    //Возвращает подстроку строки string, начинающейся с start символа по счету и длиной length символов.
 
-$start = 2;
-#strpos
+    public function getSubStr() {
 
+        for ($i = 0; $i < $lenLong; $i++) {
+        	if (($i < $this->posIn) || ($i >= $this->lenght)) {
+        		unset($this->strToArray[$i]);
+            }
+        }
 
-#substr — Возвращает подстроку string substr ( string $string , int $start [, int $length ] )
-#Возвращает подстроку строки string, начинающейся с start символа по счету и длиной length символов.
+        return $comma_separated = implode('', $this->strToArray);
 
-$array = str_split($long);
-
-for ($i = 0; $i < $lenLong; $i++) {
-    if (($i < $start) || ($i >= $lenLong)) {
-        unset($array[$i]);
     }
+
 }
 
-echo $comma_separated = implode('', $array);
+
+
+
+
 
 #substr_count — Возвращает число вхождений подстроки
 
