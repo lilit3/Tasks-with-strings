@@ -54,7 +54,7 @@ class ForStringClass
         return($newArr);
     }
 
-     //strpos
+    //strpos
     public function getStrPos()
     {
 
@@ -71,7 +71,7 @@ class ForStringClass
     public function substrCount($delimiter)
     {
 
-        // while ($x = strpos($this->longString,, 's')) {
+        // while ($x = strpos($this->longString, 's')) {
         // 	$long = substr($long, ++$x);
         // 	$substr_count++;
 
@@ -85,3 +85,4 @@ class ForStringClass
 
 $myString = new ForStringClass('PHP 5 is very very flexible in accessing member variables and member functions.');
 echo $myString->getSubStr(5, 25);
+var_dump($myString->explodeStr(' '));
