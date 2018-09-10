@@ -3,15 +3,15 @@
 class ForStringClass
 {
 
-	public $longString;
-	public $lengthString;
+    public $longString;
+    public $lengthString;
 
-	//public $shotString;
-	//public $lenghtShot;
+    //public $shotString;
+    //public $lenghtShot;
 
-   public function __construct(string $longString){
-
-	    $this->longString = $longString;
+    public function __construct(string $longString){
+	
+	$this->longString = $longString;
         $this->getStrLen();
     }
 
@@ -23,7 +23,7 @@ class ForStringClass
     //substr — Возвращает подстроку строки string, начинающейся с start символа по счету и длиной length символов.
     public function getSubStr($start, $len = false)
     {
-        if ($len == false) {
+        if ($len === false) {
             $len = $this->lengthString;
         }
         
