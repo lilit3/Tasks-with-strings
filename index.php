@@ -11,9 +11,9 @@ class ForStringClass
 	public $strToArray;
 
 
-	public function __construct(string $longString){
+   public function __construct(string $longString){
 
-		$this->longString = $longString;
+	$this->longString = $longString;
         $this->getStrLen();
         $this->substr = $substr;
         $this->lenghtShot = strlen($this->substr);
