@@ -1,19 +1,42 @@
 <?php
 
-#strpos
-$long = 'long string';
-$shot = 'str';
+class ForStringClass
+{
+	public $longString;
+	public $lenght;
+	//public $posIn;
+	public $shotString;
+	public $lenghtShot;
 
-$start = 2;
 
-$lenLong = strlen($long);
-$lenShot = strlen($shot);
+	public function __construct(string $longString){
+        $this->longString = $longString;
+        $this->getStrLen();
+        $this->substr = $substr;
+        $this->lenghtShot = strlen($this->shotString);
+    }
 
-for ($i = 0; $i < $lenLong; $i++) {
-    if (substr_compare($long, $shot, $i, $lenShot) == 0) {
-        echo $i;
+    public function getStrLen() {
+        $this->lenght = strlen($this->lenght);
+    }
+    
+    // strpos
+    public function getStrPos() {
+
+        for ($i = 0; $i < $this->lenght; $i++) {
+        	if (substr_compare($this->longString, $this->shotString, $i, $this->lenghtShot) == 0) {
+        		
+        		return $i;
+            }       
+        }
+        
     }
 }
+
+
+$start = 2;
+#strpos
+
 
 #substr — Возвращает подстроку string substr ( string $string , int $start [, int $length ] )
 #Возвращает подстроку строки string, начинающейся с start символа по счету и длиной length символов.
