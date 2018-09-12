@@ -6,8 +6,8 @@ class ForStringClass
 
     public function __construct(string $longString){
     
-    $this->longString = $longString;
-    $this->getStrLen();
+        $this->longString = $longString;
+        $this->getStrLen();
     }
 
     public function getStrLen()
@@ -77,7 +77,9 @@ class ForStringClass
 }
 
 $myString = new ForStringClass('PHP 5 is very very flexible in accessing member variables and member functions.');
+
 echo $myString->getSubStr(5, 25);
+
 var_dump($myString->explodeStr(' '));
 
 var_dump($myString->getStrPos('flexible'));
