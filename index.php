@@ -31,7 +31,7 @@ class ForStringClass
         return implode('', $strToArray);
     }
 
-    #explode — Разбивает строку с помощью разделителя. Возвращает массив строк, полученных разбиением строки string с использованием delimiter в качестве разделителя.
+    //explode — Разбивает строку с помощью разделителя. Возвращает массив строк, полученных разбиением строки string с использованием delimiter в качестве разделителя.
     public function explodeStr($delimiter)
     {
         $newArr = [];
