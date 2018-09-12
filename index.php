@@ -52,9 +52,9 @@ class ForStringClass
     public function getStrPos($sub)
     {
         for ($i = 0; $i < $this->lengthString; $i++) {
-         if (substr_compare($this->longString, $sub, $i, strlen($sub)) == 0) {
+            if (substr_compare($this->longString, $sub, $i, strlen($sub)) == 0) {
                 
-             return $i;
+            return $i;
             }       
         }
 
