@@ -58,7 +58,7 @@ class ForStringClass
             }       
         }
 
-        return false;  
+        return;  
     }
 
     #3 substr_count — Возвращает число вхождений подстроки
