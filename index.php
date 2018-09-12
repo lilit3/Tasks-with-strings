@@ -64,8 +64,8 @@ class ForStringClass
     #3 substr_count — Возвращает число вхождений подстроки
     public function substrCount($sub)
     {
-        $substr_count = $this->lengthString - $this->lengthString;
-        $string = $this->longString;
+        $substr_count = $this->lengthString - $this->lengthString; // это 0. Это нормально вообще?
+        $string = $this->longString; // это - чтоб сохранить значение $this->longString, вдруг пригодится дальше
 
          while ($x = strpos($string, $sub)) {
              $string = substr($string, ++$x);
