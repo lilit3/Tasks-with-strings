@@ -59,16 +59,16 @@ class ForStringClass
         }
         return;  
 
-       <?php
-
-// $start = 0;
+      $start = 0;
 // $string = 'PHP 5 is very very flexible';
-// $sub = 'exrr';
+// $sub = 'exib';
 // $lenStr = strlen($string);
 // $lenSub = strlen($sub);
 // $pos = 0;
 // $strToArray = str_split($string);
 // $subToArray = str_split($sub);
+
+// $q = true;
 
 // for ($pos = 0; $pos < $lenSub; $pos++) {
 
@@ -77,24 +77,29 @@ class ForStringClass
 
 //         if ($subToArray[$pos] == $strToArray[$j]) {
 //             $start = ++$j;
+//             $q = true;
 //             break;
 //         } else {
 //             if ($pos > 0) {
 //                 $pos = 0;
 //                 $start = ++$j;
+//                 $q = false;
 //                 break 1;
                 
 //             }
 //         }
 //     }
 // }
-//  if ($pos == $lenSub) {
+// echo $pos;
+//  if (($pos == $lenSub)&& ($q === true)) {
 //         echo ($start - $lenSub);
 //     } else {
 //       echo 'Not found'; 
 //     }
     
 //     echo ' = ' , strpos($string, $sub);
+        
+        
     }
     #3 substr_count — Возвращает число вхождений подстроки
     public function substrCount($sub)
