@@ -4,35 +4,49 @@ class ForStringClass
     public $longString;
     public $lengthString;
     public $subString;
+    public $positionSubString;
+
     public function __construct(string $longString){
     
         $this->longString = $longString;
-        $this->getStrLen();
-        $this->getSubStr(5, 25);
+        $this->lengthString = $this->getStrLen();
+        $this->subString = $this->getSubStr(5, 25);
+       // $this->getSubStr(5, 25);
+       // $this->positionSubString = $positionSubString;
         
     }
-    public function getStrLen()
+    public function getStrLen($whichString = false)
     {
-        $this->lengthString = strlen($this->longString);
+    	if ($whichString === false) {
+            $whichString = $this->longString; 
+        }
+
+        return strlen($whichString);
     }
    
     //substr — Возвращает подстроку строки string, начинающейся с start символа по счету и длиной length символов.
-    public function getSubStr($start, $len = false)
+    public function getSubStr($start, $len = false, $string = false)
     {
-        if ($len === false) {
-            $len = $this->lengthString;
+        if (($len === false) && ($string != false)) {
+            $len = $this->getStrLen($string);
         }
 
-        $strToArray = str_split($this->longString);
-       
-        for ($i = 0; $i < $this->lengthString; $i++) {
-            if (($i >= $start) && ($i < ($len + $start))) {
-                $this->subString[] = $strToArray[$i];
-            }
-        }
+        if ($string === false) {
+            $string = $this->longString;
+            $len = $this->lengthString - $start;
+        } 
+
+        $subString = false;
+        $strToArray = str_split($string);
         
-        $this->subString = implode('', $this->subString);
-        return $this->subString;
+      
+        for ($i = $start; $i < $len+$start; $i++) {
+               // $subString[] = $strToArray[$i];
+               $subString .= $strToArray[$i];
+                        }
+     
+     //   $subString = implode('', $subString);
+        return $subString;
     }
     //explode — Разбивает строку с помощью разделителя. Возвращает массив строк, полученных разбиением строки string с использованием delimiter в качестве разделителя.
     public function explodeStr($delimiter)
@@ -49,72 +63,68 @@ class ForStringClass
         return($newArr);
     }
    // strpos просто сравнивать по символьно. искать первый симфол и если нашелся то и остальные проверять. если остальных нет то снова искать первый
-    public function getStrPos($sub)
+    public function getStrPos($string, $sub)
     {
-        for ($i = 0; $i < $this->lengthString; $i++) {
-            if (substr_compare($this->longString, $sub, $i, strlen($sub)) == 0) {
-                
-            return $i;
-            }       
+    	$start = 0;
+        $lenSub = $this->getStrLen($sub); 
+        $lenString = $this->getStrLen($string); 
+
+$strToArray = str_split($string);
+$subToArray = str_split($sub);
+
+$next = true;
+
+for ($pos = 0; $pos < $lenSub; $pos++) {
+    for ($j =  $start; $j < $lenString; $j++) {
+
+        if ($subToArray[$pos] != $strToArray[$j]) {
+
+        	if ($pos > 0) {
+        	    $pos = 0;
+        	    $next = false;
+        	    $start = ++$j;
+                break;
+            }
+
+        	continue;
+
+        } else {
+        	 $next = true;
+        	 $start = ++$j;
+             break;
         }
-        return;  
 
-      $start = 0;
-// $string = 'PHP 5 is very very flexible';
-// $sub = 'exib';
-// $lenStr = strlen($string);
-// $lenSub = strlen($sub);
-// $pos = 0;
-// $strToArray = str_split($string);
-// $subToArray = str_split($sub);
+    }
+}
 
-// $q = true;
+ if (($pos == $lenSub) && ($next === true)) {
+';khv ' 	$this->positionSubString = $start - $lenSub;
 
-// for ($pos = 0; $pos < $lenSub; $pos++) {
-
-//     for ($j =  $start; $j < $lenStr; $j++) {
-//         //echo $j , $subToArray[$pos] , $strToArray[$j] , "\n";
-
-//         if ($subToArray[$pos] == $strToArray[$j]) {
-//             $start = ++$j;
-//             $q = true;
-//             break;
-//         } else {
-//             if ($pos > 0) {
-//                 $pos = 0;
-//                 $start = ++$j;
-//                 $q = false;
-//                 break 1;
-                
-//             }
-//         }
-//     }
-// }
-// echo $pos;
-//  if (($pos == $lenSub)&& ($q === true)) {
-//         echo ($start - $lenSub);
-//     } else {
-//       echo 'Not found'; 
-//     }
+    } else {
+      $this->positionSubString = false;
+    }
     
-//     echo ' = ' , strpos($string, $sub);
-        
+   return $this->positionSubString;     
         
     }
     #3 substr_count — Возвращает число вхождений подстроки
-    public function substrCount($sub)
+    public function subStrCount($sub)
     {
-        $substr_count = $this->lengthString - $this->lengthString; // это 0. Это нормально вообще?
+        
+        $substr_count = 0; 
         $string = $this->longString; // это - чтоб сохранить значение $this->longString, вдруг пригодится дальше
-         while ($x = strpos($string, $sub)) {
-             $string = substr($string, ++$x);
-             $substr_count++;
+        
+        while ($x = $this->getStrPos($string, $sub)) {
+            $substr_count++;
+                    $string = $this->getSubStr(++$x, false, $string);
         }
         return $substr_count;
     }
 }
+
 $myString = new ForStringClass('PHP 5 is very very flexible in accessing member variables and member functions.');
-echo $myString->subString;
+$myString->subString;
 //var_dump($myString->explodeStr(' '));
-//var_dump($myString->getStrPos('flexible'));
-//var_dump($myString->substrCount('very'));
+$string = 'PHP 5 is very very flexible in accessing member variables and member functions.';
+var_dump($myString->getStrPos($string, 'very'));
+var_dump($myString->subStrCount('very'));
