@@ -12,7 +12,7 @@ class ForStringClass
         $this->longString = $longString;
         $this->lengthString = $this->getStrLen();
         $this->subString = $this->getSubStr(6, 7);   
-        $this->$zero = 0;    
+        $this->zero = 0;    
     }
 
     public function getStrLen($whichString = false)
@@ -59,7 +59,7 @@ class ForStringClass
    // strpos просто сравнивать по символьно. искать первый симфол и если нашелся то и остальные проверять. если остальных нет то снова искать первый
     public function getStrPos($string, $sub)
     {
-        $start = $this->$zero;
+        $start = $this->zero;
         $lenSub = $this->getStrLen($sub); 
         $lenString = $this->getStrLen($string); 
 
@@ -84,7 +84,7 @@ class ForStringClass
                 $next = true;
                 $start = ++$j;
                 break;
-                
+
                 }
             }
         }
@@ -103,9 +103,9 @@ class ForStringClass
     public function subStrCount($sub)
     {
         
-        $substr_count = $this->$zero;
+        $substr_count = $this->zero;
         $string = $this->longString; // это - чтоб сохранить значение $this->longString, вдруг пригодится дальше
-        $z = $this->$zero;
+        $z = $this->zero;
 
         while ($x = $this->getStrPos($string, $sub)) {
 
