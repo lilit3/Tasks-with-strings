@@ -15,6 +15,35 @@ class ForStringClass
         $this->zero = 0;    
     }
 
+    public function invertString($string)
+    {
+        $invert = '';
+        $count = strlen($string);
+
+        for ($i = --$count; $i >= 0; $i--) {
+            $invert .= $string[$i];
+        }
+            
+        return $invert;
+    }
+       
+public function invertStringTwo($string)
+{
+	$invert = '';
+    $i = $this->zero;
+
+    while (isset($string[$i])) {
+        $i++;
+    }
+        
+    while ($i>0) {
+        $i--;
+        $invert .= $string[$i];
+    }
+    
+    return $invert;
+}
+       
     public function getStrLen($whichString = false)
     {
         if (false === $whichString) {
@@ -125,3 +154,6 @@ $myString->subString;
 $string = 'PHP 5 is very very flexible in accessing member variables and member functions.';
 var_dump($myString->getStrPos($string, 'very'));
 var_dump($myString->subStrCount('very'));
+
+var_dump($myString->invertString('coup the string'));
+var_dump($myString->invertStringTwo('coup the string'));
